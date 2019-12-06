@@ -31,7 +31,7 @@ load_data <- function(fpath) {
   }
   mydata["Price"] <- apply(mydata["Price"], 1, priceToNum)
   mydata["Rating_high"] <- as.integer((mydata["Rating"] >= 4.5) * 1)
-  mydata["Rating_med"] <- as.integer(((mydata["Rating"] < 4.5) & (mydata["Rating"] > 3.5)) * 1)
+  mydata["Rating_med"] <- as.integer(((mydata["Rating"] < 4.5) & (mydata["Rating"] >= 3.5)) * 1)
   mydata["Rating_low"] <- as.integer((mydata["Rating"] < 3.5)* 1)
   
   
@@ -81,7 +81,7 @@ genMCMC = function( data , xName="x" , yName="y" ,
       y[i] ~ dbern( ilogit( zbeta0 + sum( zbeta[1:Nx] * zx[i,1:Nx] ) ) )
     }
     # Priors vague on standardized scale:
-    zbeta0 ~ dbeta( 2 , 5 )  
+    zbeta0 ~ dnorm( 0 , 1/2^2 )  
     for ( j in 1:Nx ) {
       zbeta[j] ~ dnorm( 0 , 1 )
     }
