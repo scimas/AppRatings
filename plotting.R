@@ -60,3 +60,4 @@ plotMCMC( mcmcCoda , data=mydata , xName=xName , yName=yName ,
           pairsPlot=TRUE , showCurve=FALSE ,
           saveName=fileNameRoot , saveType=graphFileType )
 #------------------------------------------------------------------------------- 
+

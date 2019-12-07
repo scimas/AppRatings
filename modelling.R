@@ -1,3 +1,4 @@
+# genMCMC, smryMCMC and plotMCMC code obtained from the source below:
 # Jags-Ydich-XmetMulti-Mlogistic.R 
 # Accompanies the book:
 #   Kruschke, J. K. (2015). Doing Bayesian Data Analysis, Second Edition: 
@@ -279,3 +280,4 @@ plotMCMC = function( codaSamples , data , xName="x" , yName="y" ,
   #-----------------------------------------------------------------------------
 }
 #===============================================================================
+
