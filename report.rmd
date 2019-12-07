@@ -27,6 +27,10 @@ We have used Generalized Logistic Regression as our model for the rating. The ra
 
 Note: The dataset has more features, we had originally planned to use them in our analysis. But we had to limit our scope to fewer variables due to time and computational constraints.
 
+# Data
+
+The data has been obtained from [Kaggle](https://www.kaggle.com/gauthamp10/google-playstore-apps). It contains two files, one with 250,000 apps' data and one with 32,000 apps' data. We are limiting this project to the 32 k samples file due to time and computation constraints.
+
 # EDA and Preprocessing
 
 The number of installs and price of the app are given as strings that cannot be directly converted into numbers. So we wrote functions to process and properly convert them into numerical data. The number of installs are still not strictly numerical, since the data we received had categories like "100+", "10,000+" them. We had to remove the dollar symbol for converting the price. Then we converted the ratings into categories as mentioned in the introduction.

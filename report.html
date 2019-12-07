@@ -1560,6 +1560,10 @@ div.tocify {
 <p>We have used Generalized Logistic Regression as our model for the rating. The rating is divided into three categories - High, Medimum and Low - which correspond to rating values of (r &gt;= 4.5), (4.5&gt; r &gt;= 3.5) and (3.5 &gt; r) respectively. The categorisation is not uniform over the range of the ratings, but from our own experience, people don’t perceive the ratings uniformly either. We perform one vs all logistic regression for all of these categories. Then we try to interpret the parameters.</p>
 <p>Note: The dataset has more features, we had originally planned to use them in our analysis. But we had to limit our scope to fewer variables due to time and computational constraints.</p>
 </div>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>The data has been obtained from <a href="https://www.kaggle.com/gauthamp10/google-playstore-apps">Kaggle</a>. It contains two files, one with 250,000 apps’ data and one with 32,000 apps’ data. We are limiting this project to the 32 k samples file due to time and computation constraints.</p>
+</div>
 <div id="eda-and-preprocessing" class="section level1">
 <h1>EDA and Preprocessing</h1>
 <p>The number of installs and price of the app are given as strings that cannot be directly converted into numbers. So we wrote functions to process and properly convert them into numerical data. The number of installs are still not strictly numerical, since the data we received had categories like “100+”, “10,000+” them. We had to remove the dollar symbol for converting the price. Then we converted the ratings into categories as mentioned in the introduction.</p>
@@ -1675,7 +1679,7 @@ y_{i} \leftarrow \mathrm{Bernoulli}\left(\mu_{i}\right), \mu_{i} \leftarrow \mat
 <p>We saw that the medium rating category had the highest number of samples. The posterior distributions of the intercept reflect the observation. The intercept is positive for the medium rating model and negative for the rest. Which means that, in absence of any reviews, installs and zero price, the app is much more likely to be a medium rated app than a high or low rated.</p>
 <p>The reviews parameter is positive for high rating and negative for the others. Which means that the posterior probability increases with number of reviews for being a high rated app and decreases for medium and low rating. In fact, since the parameter values indicate the log odds change in absence of other features, the posterior of being a low rated app decreases much more rapidly.</p>
 <p>The installs parameter is positive for medium rating and negative for the others. This has similar meaning to the reviews parameter.</p>
-<p>The price parameter is very close to zero than the other parameters for all three models. Which means it has the least impact in determining the rating of the app. For low rating model, zero falls right in the middle of the 95% HDI. Which means price cannot help us distinguish whether an app is low rated or not.</p>
+<p>The price parameter is very close to zero than the other parameters for all three models. Which means it has the least impact in determining the rating of the app. For low rating model, zero falls right in the middle of the 95% HDI. Which means price cannot help us distinguish whether an app is low rated or not. Between high and medium rating models, the parameter is positive for high rating and negative for medium rating. Which means an app is slightly more likely to be high rated than medium rated as the price increases.</p>
 </div>
 
 
