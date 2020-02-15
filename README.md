@@ -2,6 +2,8 @@
 
 Authors: Ishita Jain, Mihir Gadgil
 
+Read the [report](report.html).
+
 # Data
 
 The data can be obtained from [Kaggle](https://www.kaggle.com/gauthamp10/google-playstore-apps). Extract it into the data directory.
